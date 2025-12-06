@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PoseNet Multi-Person Demo</title>
+
+  <!-- ml5.js -->
+  <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+
+  <!-- CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: white;
+
+      /* Animated gradient background */
+      background: linear-gradient(-45deg, #ff6f61, #6a5acd, #00c9ff, #92fe9d);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Center webcam container */
+    #canvasContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    /* Glassmorphism effect */
+    .glass {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      padding: 15px;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+      animation: popIn 1.5s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Posture Detection</h1>
+
+  <div id="canvasContainer" class="glass"></div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
